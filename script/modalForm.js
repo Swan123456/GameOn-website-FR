@@ -110,8 +110,12 @@ function validationForm() {
     const quantityCheck = (value) => {
         const error = document.querySelector('.quantity');
         let valid = false;
-        if (!value || Number.isInteger(value)) {
+        if (!value) {
             error.setAttribute('data-error-visible', 'true');
+        }
+        else if (/[.,]/.test(value)) {
+            error.setAttribute('data-error-visible', 'true');
+        
         }
         else {
             valid = true;
