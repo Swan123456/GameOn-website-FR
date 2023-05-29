@@ -110,12 +110,12 @@ function validationForm() {
     const quantityCheck = (value) => {
         const error = document.querySelector('.quantity');
         let valid = false;
-        if (!value) {
+        const intValue = parseInt(value);
+        if (!value || Number.isNaN(intValue) || !Number.isInteger(intValue)) {
             error.setAttribute('data-error-visible', 'true');
         }
         else if (/[.,]/.test(value)) {
             error.setAttribute('data-error-visible', 'true');
-        
         }
         else {
             valid = true;
